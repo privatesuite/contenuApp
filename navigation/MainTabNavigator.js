@@ -2,16 +2,25 @@ import React from 'react';
 import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
+// Import Assets
 import TabBarIcon from '../components/TabBarIcon';
+
+// Import Screens
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
+import DataScreen from '../screens/DataScreen';
+import ElementsScreen from '../screens/ElementsScreen';
+import PluginsScreen from '../screens/PluginsScreen'
 import SettingsScreen from '../screens/SettingsScreen';
+
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
   default: {},
 });
 
+
+// Initialise each Button
+// Home
 const HomeStack = createStackNavigator(
   {
     Home: HomeScreen,
@@ -26,8 +35,8 @@ HomeStack.navigationOptions = {
       focused={focused}
       name={
         Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
+          ? `ios-clipboard`
+          : 'md-clipboard'
       }
     />
   ),
@@ -35,22 +44,80 @@ HomeStack.navigationOptions = {
 
 HomeStack.path = '';
 
-const LinksStack = createStackNavigator(
+
+// Data
+const DataStack = createStackNavigator(
   {
-    Links: LinksScreen,
+    Data: DataScreen
   },
   config
-);
+)
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+DataStack.navigationOptions = {
+  tabBarLabel: 'Data',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
-  ),
-};
+    <TabBarIcon
+      focused={focused}
+      name={
+        Platform.OS === 'ios'
+          ? `ios-journal`
+          : 'md-journal'
+      }
+    />
+  )
+}
 
-LinksStack.path = '';
+DataStack.path = ''
 
+// Elements
+const ElementsStack = createStackNavigator(
+  {
+    Elements: ElementsScreen
+  },
+  config
+)
+
+ElementsStack.navigationOptions = {
+  tabBarLabel: 'Elements',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={
+        Platform.OS === 'ios'
+          ? `ios-archive`
+          : 'md-archive'
+      }
+    />
+  )
+}
+
+ElementsStack.path = '';
+
+// Plugins
+const PluginsStack = createStackNavigator(
+  {
+    Plugins: PluginsScreen
+  },
+  config
+)
+
+PluginsStack.navigationOptions = {
+  tabBarLabel: 'Plugins',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={
+        Platform.OS === 'ios'
+          ? `ios-paper`
+          : 'md-paper'
+      }
+    />
+  )
+}
+
+PluginsStack.path = '';
+
+// Settings
 const SettingsStack = createStackNavigator(
   {
     Settings: SettingsScreen,
@@ -67,9 +134,13 @@ SettingsStack.navigationOptions = {
 
 SettingsStack.path = '';
 
+
+// Create the Navigator
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
-  LinksStack,
+  DataStack,
+  ElementsStack,
+  PluginsStack,
   SettingsStack,
 });
 
