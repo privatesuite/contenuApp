@@ -6,10 +6,10 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 import TabBarIcon from '../components/TabBarIcon';
 
 // Import Screens
-import HomeScreen from '../screens/HomeScreen';
-import DataScreen from '../screens/DataScreen';
-import ElementsScreen from '../screens/ElementsScreen';
-import PluginsScreen from '../screens/PluginsScreen'
+import HomeScreen from '../screens/HomeScreen/HomeScreen';
+import DataScreen from '../screens/DataScreen/DataScreen';
+import ElementsScreen from '../screens/ElementsScreen/ElementsScreen';
+import PluginsScreen from '../screens/PluginsScreen/PluginsScreen'
 import SettingsScreen from '../screens/SettingsScreen';
 
 

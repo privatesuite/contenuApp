@@ -1,5 +1,6 @@
 import React from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native'
+import { ScrollView, Text, View } from 'react-native'
+import styles from './Style';
 
 export default function LinksScreen() {
   return (
@@ -16,16 +17,3 @@ export default function LinksScreen() {
 LinksScreen.navigationOptions = {
   title: 'Plugins',
 };
-
-const styles = StyleSheet.create({
-  welcomeContainer: {
-    alignItems: 'center',
-    marginTop: 10,
-    marginBottom: 20,
-  },
-  container: {
-    flex: 1,
-    paddingTop: 15,
-    backgroundColor: '#fff',
-  },
-});
