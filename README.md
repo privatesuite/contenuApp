@@ -10,7 +10,6 @@ An app for managing and interacting with our CMS [*Contenu*](https://github.com/
     - [ ] Sub-Navigation
         - [ ] Elements "section" navigation
     - [ ] iOS/Android styling matches
-    - [ ] 
 - [ ] Management
     - [ ] Users
         - [ ] User editing
