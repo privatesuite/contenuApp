@@ -11,4 +11,12 @@ export default styles = StyleSheet.create({
     paddingTop: 15,
     backgroundColor: '#fff',
   },
+  element: {
+    alignItems: 'center',
+    marginTop: 5,
+    paddingBottom: 5,
+    borderBottomColor: 'black',
+    borderBottomWidth: 1,
+    margin: 5,
+  }
 });

@@ -1,14 +1,13 @@
 import React from 'react';
-import { ScrollView, Text, View } from 'react-native'
+import { ScrollView, View } from 'react-native'
 import styles from './Style';
+import ElementList from './components/ElementsList/ElementList'
 
 export default function LinksScreen() {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.welcomeContainer}>
-        <Text>
-          Content will go here
-        </Text>
+        <ElementList/>
       </View>
     </ScrollView>
   );
