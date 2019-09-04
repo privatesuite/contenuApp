@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import styles from '../../Style'
-import { ScrollView, Text, View } from 'react-native'
+import { SectionList, Text, View } from 'react-native'
 import { GetElements } from './Func'
+import config from '../../../../constants/Config'
 
 
 export default class ElementList extends Component {
@@ -9,6 +10,7 @@ export default class ElementList extends Component {
     super(props)
     this.state = {
       elementData: {},
+      templates: [],
       loaded: false
     }
   }
@@ -28,19 +30,21 @@ export default class ElementList extends Component {
   }
 
   render () {
+    // My IDE is telling me <SectionList/> wont render but it does ¯\_(ツ)_/¯
+    // noinspection RequiredAttributes
     return (
-      <ScrollView>
+      <View>
         {this.state.loaded?
-          <View>{
-            this.state.elementData.map(element => {
-              return <View style={styles.element} key={element.id}>
-                <Text>{element.title}</Text>
-              </View>
-            })
-          }</View>:
-          <Text>Loading...</Text>
+          <SectionList
+            sections={this.state.elementData}
+            keyExtractor={(item) => item.id}
+            renderItem={({item}) => <View style={styles.elementBody} key={item.id}><Text style={styles.elementBodyText}>{item.title?item.title:config.noTitle}</Text></View>}
+            renderSectionHeader={({section: {title}}) => <View key={title} style={styles.elementHeader}><Text style={styles.elementHeaderText}>{title}</Text></View>}
+          />
+          :
+          <Text style={styles.loadingText}>Loading...</Text>
         }
-      </ScrollView>
+      </View>
     )
   }
 
